@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: LGPL-3.0-or-later -->
+<odoo>
+    <record id="rule_res_users_signature_own" model="ir.rule">
+        <field name="name">Company signatures: own</field>
+        <field name="model_id" ref="model_res_users_signature"/>
+        <field name="domain_force">[('user_id', '=', user.id), ('company_id', 'in', user.company_ids.ids)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="rule_res_users_signature_all" model="ir.rule">
+        <field name="name">Company signatures: all</field>
+        <field name="model_id" ref="model_res_users_signature"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+    </record>
+</odoo>

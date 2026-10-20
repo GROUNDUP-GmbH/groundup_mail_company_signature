@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: LGPL-3.0-or-later -->
+<odoo>
+    <record id="view_users_form_company_signature" model="ir.ui.view">
+        <field name="name">res.users.form.company.signature</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='other_preferences']" position="inside">
+                <field name="company_signature_ids" nolabel="1" colspan="2"
+                       invisible="companies_count &lt;= 1"
+                       context="{'default_user_id': id}">
+                    <list editable="bottom">
+                        <field name="company_id" options="{'no_create': True}"
+                               domain="[('id', 'in', user_id.company_ids.ids)]"/>
+                        <field name="signature" widget="html_mail"
+                               options="{'codeview': true, 'height': 112, 'resizable': true}"/>
+                    </list>
+                </field>
+            </xpath>
+            <field name="signature" position="attributes">
+                <attribute name="help">Default signature. A company-specific signature overrides it for emails sent from that company.</attribute>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_users_form_simple_modif_company_signature" model="ir.ui.view">
+        <field name="name">res.users.preferences.form.company.signature</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form_simple_modif"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='other_preferences']" position="inside">
+                <field name="company_signature_ids" nolabel="1" colspan="2"
+                       invisible="companies_count &lt;= 1"
+                       context="{'default_user_id': id}">
+                    <list editable="bottom">
+                        <field name="company_id" options="{'no_create': True}"
+                               domain="[('id', 'in', user_id.company_ids.ids)]"/>
+                        <field name="signature" widget="html_mail"
+                               options="{'codeview': true, 'height': 112, 'resizable': true}"/>
+                    </list>
+                </field>
+            </xpath>
+            <field name="signature" position="attributes">
+                <attribute name="help">Default signature. A company-specific signature overrides it for emails sent from that company.</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>
