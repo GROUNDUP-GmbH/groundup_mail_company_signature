@@ -2,7 +2,7 @@
 # Copyright 2026 Ground UP GmbH
 {
     "name": "Company-wise User Email Signature",
-    "version": "19.0.1.0.0",
+    "version": "19.0.1.1.0",
     "category": "Productivity/Discuss",
     "summary": "Per-company email signatures for users working in several companies",
     "description": """
