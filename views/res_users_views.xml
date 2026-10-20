@@ -15,7 +15,7 @@
                 <field name="company_signature_ids" nolabel="1" colspan="2"
                        invisible="companies_count &lt;= 1"
                        context="{'default_user_id': id}">
-                    <list>
+                    <list open_form_view="1">
                         <field name="company_id"/>
                         <field name="signature" widget="html"/>
                     </list>
@@ -44,7 +44,7 @@
                 <field name="company_signature_ids" nolabel="1" colspan="2"
                        invisible="companies_count &lt;= 1"
                        context="{'default_user_id': id}">
-                    <list>
+                    <list open_form_view="1">
                         <field name="company_id"/>
                         <field name="signature" widget="html"/>
                     </list>
